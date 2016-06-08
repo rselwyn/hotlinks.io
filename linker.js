@@ -1,3 +1,5 @@
+var inNewWindow = true
+
 $(function(){
 	$("#maininput").keyup(function (e) {
 	    if (e.keyCode == 13) {
@@ -18,6 +20,18 @@ function doInput() {
 		outgoingUrl+="twitter.com/" + newText
 	}
 
-	window.location.href = outgoingUrl
-
+	if (!inNewWindow) {
+		window.location.href = outgoingUrl
+	}
+	else {
+		window.open(outgoingUrl, '_blank');
+	}
 }
+
+$(document).ready(function(){
+    $('.onoffswitch-label').click(function(){
+        $(this).parent().toggleClass('onoffswitch-checked');
+        inNewWindow=!inNewWindow
+    });
+
+});
