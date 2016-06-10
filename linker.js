@@ -4,7 +4,8 @@ var site = ""
 
 var siteImageMap = {
 	facebook: "https://pbs.twimg.com/profile_images/3513354941/24aaffa670e634a7da9a087bfa83abe6_200x200.png",
-	twitter: "https://g.twimg.com/Twitter_logo_blue.png"
+	twitter: "https://g.twimg.com/Twitter_logo_blue.png",
+	github: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/PEO-octocat-2.svg/1000px-PEO-octocat-2.svg.png"
 }
 
 $(function(){
@@ -19,7 +20,7 @@ $(function(){
 
 window.setInterval(function(){
   showLogoIn()
-}, 500);
+}, 250);
 
 function doInput() {
 	var value = $("#maininput").val()
@@ -30,8 +31,12 @@ function doInput() {
 		site = "twitter"
 	}
 	else if (splitted[0] == "_") {
-		outgoingUrl += "http://www.facebook.com/" + splitted.slice(1,splitted.length).join("")
+		outgoingUrl = "http://www.facebook.com/" + splitted.slice(1,splitted.length).join("")
 		site = "facebook"
+	}
+	else if (splitted[0] + splitted[1] == "gh") {
+		outgoingUrl = "https://www.github.com/"
+		site = "github"
 	}
 	else {
 		outgoingUrl = ""
