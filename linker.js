@@ -1,5 +1,11 @@
 var inNewWindow = true
 var outgoingUrl = ""
+var site = ""
+
+var siteImageMap = {
+	facebook: "https://pbs.twimg.com/profile_images/3513354941/24aaffa670e634a7da9a087bfa83abe6_200x200.png",
+	twitter: "https://g.twimg.com/Twitter_logo_blue.png"
+}
 
 $(function(){
 	showLogoIn()
@@ -21,12 +27,15 @@ function doInput() {
 	if (splitted[0] == "@") {
 		var newText = splitted.slice(1,splitted.length).join("")
 		outgoingUrl="http://www.twitter.com/" + newText
+		site = "twitter"
 	}
 	else if (splitted[0] == "_") {
 		outgoingUrl += "http://www.facebook.com/" + splitted.slice(1,splitted.length).join("")
+		site = "facebook"
 	}
 	else {
 		outgoingUrl = ""
+		site = ""
 	}
 }
 
@@ -38,10 +47,12 @@ function showLogoIn () {
 	}
 	else {
 		console.log("Change")
+		document.getElementsByClassName("simage")[0].src = siteImageMap[site]
 		document.getElementsByClassName("simage")[0].style.display = "inline"
 		document.getElementById("maininput").style.marginRight = "20px"
 	}
 }
+
 
 function goToUrl() {
 	if (!inNewWindow) {
