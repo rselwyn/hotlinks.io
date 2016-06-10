@@ -114,7 +114,7 @@ div.inner {
 input {
 	display: block;
 	margin: 0 auto;
-	width: 95%;
+	width: 70%;
 	height: 70px;
 	font-size: 30px;
 	font-family: Raleway;
@@ -122,6 +122,14 @@ input {
 
 textarea:focus, input:focus{
     outline: none;
+}
+
+.simage {
+	margin-left: 10px;
+	float: left;
+	width: 70px;
+	height: 70px;
+	display: block;
 }
 
 .movetobottom {
