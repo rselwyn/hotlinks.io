@@ -10,9 +10,9 @@ var siteImageMap = {
 }
 
 $(function(){
-	showLogoIn()
 	$("#maininput").keyup(function (e) {
 		doInput()
+		showLogoIn()
 	    if (e.keyCode == 13) {
 	       	if (outgoingUrl!= "") goToUrl()
 	    }
@@ -21,7 +21,7 @@ $(function(){
 
 window.setInterval(function(){
   showLogoIn()
-}, 250);
+}, 150);
 
 function doInput() {
 	var value = $("#maininput").val()
